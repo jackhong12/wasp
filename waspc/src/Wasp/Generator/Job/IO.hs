@@ -49,7 +49,7 @@ makeJobMessagePrefix jobMsg =
     J.Server -> T.pack $ Term.applyStyles [Term.Magenta] "Server"
     J.WebApp -> T.pack $ Term.applyStyles [Term.Cyan] "Web app"
     J.Db -> T.pack $ Term.applyStyles [Term.White] "Db"
-    <> (if getJobMessageOutHandle jobMsg == stderr then " (stderr)" else "")
+    <> (if getJobMessageOutHandle jobMsg == stderr then "!" else " ")
     <> ": "
 
 getJobMessageOutHandle :: J.JobMessage -> Handle
